@@ -1,4 +1,5 @@
-<%--
+<%@ page import="javax.naming.InitialContext" %>
+<%@ page import="hari.edu.ejb.component.interfaces.HelloStatelessBeanRemote" %><%--
   Created by IntelliJ IDEA.
   User: DU72KEd
   Date: 29/11/2018
@@ -12,5 +13,11 @@
 </head>
 <body>
     <h5>Hello, Welcome to EJB Tutorial</h5>
+    Good evening.
+    <%
+        InitialContext initialContext=new InitialContext();
+        HelloStatelessBeanRemote helloStatelessBeanRemote=(HelloStatelessBeanRemote) initialContext.lookup("java:hari.edu.ejb.component.interfaces.HelloStatelessBeanRemote");
+        out.println(helloStatelessBeanRemote.add(10,20));
+    %>
 </body>
 </html>
